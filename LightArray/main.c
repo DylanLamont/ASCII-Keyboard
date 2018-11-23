@@ -1,16 +1,16 @@
 #include <msp430.h> 
+#include <stdbool.h>
 
-
-
+//bit maskers
 const int pin0 = 0b00000001;
-    const int pin2 = 0b00000100;
-    const int pin3 = 0b00001000;
-    const int pin4 = 0b00010000;
+const int pin2 = 0b00000100;
+const int pin3 = 0b00001000;
+const int pin4 = 0b00010000;
+const int pin5 = 0b00100000;
+const int pin6 = 0b01000000;
 
-    const int pin5 = 0b00100000;
-    const int pin6 = 0b01000000;
 
-
+//func to return correct bit masker
 int pinVal(int i){
     if(i == 0){
         return pin0;
@@ -30,7 +30,8 @@ int pinVal(int i){
  */
 int main(void){
 	WDTCTL = WDTPW | WDTHOLD;	// stop watchdog timer
-	P2DIR = 0b00011101;
+	P2DIR = 0b00011101;            //P2.0 , P2.2, P2.3, P2.4 OUTPUTS
+	                               // read P2.5, P2.6
 
 	unsigned int i = 0;
 
@@ -43,20 +44,25 @@ int main(void){
 
 	P2OUT = (output[0] & pin0) | (output[1] & pin2) | (output[2] & pin3) | (output[3] & pin4);
 
+	bool isQueued = true;
+
 	for(;;){
 
-
-	    if((P2IN & pin5) == pin5){
+	    //0's button
+	    if((P2IN & pin5) == pin5 && isQueued){
 	        output[i] = 0x00;
 	        i += 1;
 	        P2OUT = (output[0] & pin0) | (output[1] & pin2) | (output[2] & pin3) | (output[3] & pin4);
+	        isQueued = false;
 
 	    }
-	    if((P2IN & pin6) == pin6){
+
+	    //1's button
+	    if((P2IN & pin6) == pin6 && isQueued){
 	        output[i] = pinVal(i);
 	        i += 1;
 	        P2OUT = (output[0] & pin0) | (output[1] & pin2) | (output[2] & pin3) | (output[3] & pin4);
-
+	        isQueued = false;
 	    }
 
 
@@ -71,9 +77,9 @@ int main(void){
 	        P2OUT = 0x00;
 	    }
 
-	    volatile unsigned int d;
-	    for (d = 10000; d>0; d--);
-
+	    if((P2IN & pin5) != pin5 && (P2IN & pin6) != pin6 ){
+	        isQueued = true;
+	    }
 
 
 
