@@ -1,0 +1,6 @@
+/USB_API/
+/USB_app/
+/USB_config/
+/driverlib/
+/makefile
+/objects.mk
