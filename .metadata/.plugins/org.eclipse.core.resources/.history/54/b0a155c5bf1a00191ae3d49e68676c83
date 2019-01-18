@@ -1,0 +1,126 @@
+#include <msp430.h> 
+#include <stdbool.h>
+
+const int pin0 = 0b00000001;
+const int pin1 = 0b00000010;
+const int pin2 = 0b00000100;
+const int pin3 = 0b00001000;
+const int pin4 = 0b00010000;
+const int pin5 = 0b00100000;
+const int pin6 = 0b01000000;
+const int pin7 = 0b10000000;
+
+
+
+
+
+
+int pinVal(int i){
+    if(i == 0){
+        return pin0;
+    }else if(i == 1){
+        return pin2;
+    }else if(i == 2){
+        return pin3;
+    }else if(i == 3){
+        return pin4;
+    }else if(i == 4){
+        return pin5;
+    }else if(i == 5){
+        return pin6;
+    }else if(i == 6){
+        return pin7;
+    }
+
+    return 0x00;
+}
+
+
+
+
+/**
+ * main.c
+ */
+int main(void){
+	WDTCTL = WDTPW | WDTHOLD;	// stop watchdog timer
+	P1DIR = 0x00;
+	P2DIR = 0b11111101;
+
+	int outputs[7] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+
+	P2OUT = 0xFF;
+
+	volatile int b;
+	for (b = 10000; b>0; b--);
+
+
+	P2OUT =   (outputs[6] & pin7) | (outputs[5] & pin6)
+	                           | (outputs[4] & pin5) | (outputs[3] & pin4) | (outputs[2] & pin3)
+	                           | (outputs[1] & pin2) | (outputs[0] & pin0);
+
+	    bool isQueued = true;
+
+
+	    int currBit = 0;
+
+	for(;;){
+
+
+
+
+        //0s button
+       if ((P1IN & pin2) == pin2 && isQueued){
+           outputs[currBit] = 0x00;
+           currBit+= 1;
+
+
+           isQueued = false;
+
+           P2OUT =   (outputs[6] & pin7) | (outputs[5] & pin6)
+                   | (outputs[4] & pin5) | (outputs[3] & pin4) | (outputs[2] & pin3)
+                   | (outputs[1] & pin2) | (outputs[0] & pin0);
+       }
+
+       else if((P1IN & pin3) == pin3 && isQueued ){
+           outputs[currBit] = pinVal(currBit);
+           currBit+=1;
+           isQueued = false;
+           P2OUT =   (outputs[6] & pin7) | (outputs[5] & pin6)
+                   | (outputs[4] & pin5) | (outputs[3] & pin4) | (outputs[2] & pin3)
+                   | (outputs[1] & pin2) | (outputs[0] & pin0);
+       }
+
+       else if ((P1IN & pin4) == pin4 && isQueued){
+           unsigned int i = 0;
+           for(; i < 7; i++){
+               outputs[i] = 0x00;
+           }
+
+           currBit = 0;
+           isQueued = false;
+           P2OUT =   (outputs[6] & pin7) | (outputs[5] & pin6)
+                   | (outputs[4] & pin5) | (outputs[3] & pin4) | (outputs[2] & pin3)
+                   | (outputs[1] & pin2) | (outputs[0] & pin0);
+       }
+
+
+       if(currBit == 7){
+           currBit = 0;
+           unsigned int f;
+           for(f = 0; f<7; f++){
+               outputs[f] = 0x00;
+           }
+           P2OUT =   (outputs[6] & pin7) | (outputs[5] & pin6)
+                   | (outputs[4] & pin5) | (outputs[3] & pin4) | (outputs[2] & pin3)
+                   | (outputs[1] & pin2) | (outputs[0] & pin0);
+       }
+
+
+       if((P1IN & pin2) != pin2 && (P2IN & pin3) != pin3 && (P2IN & pin4) != pin4){
+                   isQueued = true;
+       }
+
+
+	}
+	return 0;
+}

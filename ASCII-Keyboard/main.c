@@ -60,7 +60,8 @@
 
 
 #include <stdbool.h>
-
+#include <msp430.h>
+#include <stdint.h>
 
 
 uint8_t a[8] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
@@ -74,7 +75,6 @@ const int pin5 = 0b00100000;
 const int pin6 = 0b01000000;
 const int pin7 = 0b10000000;
 
-int outputs[7] = {0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 
 
 
@@ -95,22 +95,8 @@ int pinVal(int i){
     }else if(i == 6){
         return pin7;
     }
-
     return 0x00;
-}
-
-
-
-void ledDisplay(){
-    P2OUT =    (outputs[6] & pin6) | (outputs[5] & pin5)
-               | (outputs[4] & pin4) | (outputs[3] & pin3) | (outputs[2] & pin2)
-               | (outputs[1] & pin1) | (outputs[0] & pin0);
-}
-
-
-
-
-
+ }
 
 
 
@@ -146,22 +132,26 @@ void main (void){
 
 
 
+    int outputs[7] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 
-
-    P1DIR = 0x00;
     P2DIR = 0b11111111;
 
 
+    P2OUT = 0xFF;
+
+    volatile int b;
+    unsigned int i;
+    unsigned int f;
+    for (b = 10000; b>0; b--);
+
+    P2OUT =   (outputs[6] & pin7) | (outputs[5] & pin6)
+           | (outputs[4] & pin5) | (outputs[3] & pin4) | (outputs[2] & pin3)
+           | (outputs[1] & pin2) | (outputs[0] & pin0);
+
+    bool isQueued = true;
 
 
-//        P2OUT =   (outputs[6] & pin7) | (outputs[5] & pin6)
-//                | (outputs[4] & pin5) | (outputs[3] & pin4) | (outputs[2] & pin3)
-//                | (outputs[1] & pin2) | (outputs[0] & pin0);
-
-        bool isQueued = true;
-
-
-        int currBit = 0;
+    int currBit = 0;
 
 
 
@@ -174,23 +164,111 @@ void main (void){
 
 
 
+    for(;USB_getConnectionState() == ST_ENUM_ACTIVE;){                //prints immediately
+//    for(;USB_getConnectionState() == ST_ENUM_ACTIVE;){                //prints only when 7 chars printed
+
+
+
+                //0s button
+                 if (((P1IN & pin2) == pin2) && isQueued){
+                     outputs[currBit] = 0x00;
+                     currBit+= 1;
+
+
+
+                     a[0] = 0x02;
+                     a[1] = 0x00;
+                     a[2] = 0x10;
+                     a[3] = 0x04;
+                     a[4] = 0x1B;
+                     a[5] = 0x00;
+                     a[6] = 0x00;
+                     a[7] = 0x00;
+                     //uint8_t b[8] = {0x9E, 0x0F, 0x01, 0x00, 0xDA, 0x05, 0x01, 0x00};
+                     USBHID_sendReport( a, HID0_INTFNUM);
+
+                     while(!keySendComplete);
+                     keySendComplete = FALSE;
+
+                     a[2] = 0x00;
+                     a[3] = 0x00;
+                     a[4] = 0x00;
+                     a[5] = 0x00;
+                     a[6] = 0x00;
+                     a[7] = 0x00;
+                     //uint8_t b[8] = {0x9E, 0x0F, 0x01, 0x00, 0xDA, 0x05, 0x01, 0x00};
+                     USBHID_sendReport( a, HID0_INTFNUM);
+
+
+
+                     isQueued = false;
+
+                     P2OUT =   (outputs[6] & pin7) | (outputs[5] & pin6)
+                             | (outputs[4] & pin5) | (outputs[3] & pin4) | (outputs[2] & pin3)
+                             | (outputs[1] & pin2) | (outputs[0] & pin0);
+                 }
+
+
+
+                 else if(((P1IN & pin3) == pin3) && isQueued ){
+                     outputs[currBit] = pinVal(currBit);
+                     currBit+=1;
+                     isQueued = false;
+                     P2OUT =   (outputs[6] & pin7) | (outputs[5] & pin6)
+                             | (outputs[4] & pin5) | (outputs[3] & pin4) | (outputs[2] & pin3)
+                             | (outputs[1] & pin2) | (outputs[0] & pin0);
+                 }
+
+
+
+                 else if (((P1IN & pin4) == pin4) && isQueued){
+
+                     for(i =0; i < 7; i++){
+                         outputs[i] = 0x00;
+                     }
+
+                     currBit = 0;
+
+                     isQueued = false;
+
+                     P2OUT =   (outputs[6] & pin7) | (outputs[5] & pin6)
+                             | (outputs[4] & pin5) | (outputs[3] & pin4) | (outputs[2] & pin3)
+                             | (outputs[1] & pin2) | (outputs[0] & pin0);
+                 }
 
 
 
 
 
 
+                 if(      (((P1IN & pin2) != pin2) && ((P1IN & pin3) != pin3))      &&    (((P1IN & pin4) != pin4))){
+                                    isQueued = true;
+                 }
 
 
 
 
 
+                 if(currBit == 7){
+                     currBit = 0;
+
+                     for(f = 0; f<7; f++){
+                         outputs[f] = 0x00;
+                     }
+
+                     for (b = 1000000; b>0; b--);
+
+                     P2OUT =   (outputs[6] & pin7) | (outputs[5] & pin6)
+                             | (outputs[4] & pin5) | (outputs[3] & pin4) | (outputs[2] & pin3)
+                             | (outputs[1] & pin2) | (outputs[0] & pin0);
+                 }
+
+    }
 
 
+    while (1){
 
-    while (1)
-    {
-        
+
         switch(USB_getConnectionState())
         {
             // This case is executed while your device is enumerated on the
@@ -198,82 +276,99 @@ void main (void){
             case ST_ENUM_ACTIVE:
             
                 // Enter LPM0 w/interrupt, until a keypress occurs
-                __bis_SR_register(LPM0_bits + GIE);
-
-                P2OUT =   (outputs[6] & pin7) | (outputs[5] & pin6)
-                                           | (outputs[4] & pin5) | (outputs[3] & pin4) | (outputs[2] & pin3)
-                                           | (outputs[1] & pin2) | (outputs[0] & pin0);
+//                __bis_SR_register(LPM0_bits + GIE);
 
 
-                //0s button
-               if ((P1IN & pin2) == pin2 && isQueued){
-                   outputs[currBit] = 0x00;
-                   currBit+= 1;
-                   isQueued = false;
-                   P2OUT =   (outputs[6] & pin7) | (outputs[5] & pin6)
-                           | (outputs[4] & pin5) | (outputs[3] & pin4) | (outputs[2] & pin3)
-                           | (outputs[1] & pin2) | (outputs[0] & pin0);
-               }
+                a[0] = 0x02;
+                a[1] = 0x00;
+                a[2] = 0x10;
+                a[3] = 0x04;
+                a[4] = 0x1B;
+                a[5] = 0x00;
+                a[6] = 0x00;
+                a[7] = 0x00;
+                //uint8_t b[8] = {0x9E, 0x0F, 0x01, 0x00, 0xDA, 0x05, 0x01, 0x00};
+                USBHID_sendReport( a, HID0_INTFNUM);
 
-               else if((P1IN & pin3) == pin3 && isQueued ){
-                   outputs[currBit] = pinVal(currBit);
-                   currBit+=1;
-                   isQueued = false;
-                   P2OUT =   (outputs[6] & pin7) | (outputs[5] & pin6)
-                           | (outputs[4] & pin5) | (outputs[3] & pin4) | (outputs[2] & pin3)
-                           | (outputs[1] & pin2) | (outputs[0] & pin0);
-               }
+                while(!keySendComplete);
+                keySendComplete = FALSE;
 
-               else if ((P1IN & pin4) == pin4 && isQueued){
-                   unsigned int i = 0;
-                   for(; i < 7; i++){
-                       outputs[i] = 0x00;
-                   }
-
-                   currBit = 0;
-                   isQueued = false;
-                   P2OUT =   (outputs[6] & pin7) | (outputs[5] & pin6)
-                           | (outputs[4] & pin5) | (outputs[3] & pin4) | (outputs[2] & pin3)
-                           | (outputs[1] & pin2) | (outputs[0] & pin0);
-               }
-
-
-               if(currBit == 8){
-                   currBit = 0;
-                   unsigned int f;
-                   for(f = 0; f<7; f++){
-                       outputs[f] = 0x00;
-                   }
-                   P2OUT =   (outputs[6] & pin7) | (outputs[5] & pin6)
-                           | (outputs[4] & pin5) | (outputs[3] & pin4) | (outputs[2] & pin3)
-                           | (outputs[1] & pin2) | (outputs[0] & pin0);
-               }
-
-
-               if((P1IN & pin2) != pin2 && (P2IN & pin3) != pin3 && (P2IN & pin4) != pin4){
-                           isQueued = true;
-               }
-
-
-               //ledDisplay();
+                a[2] = 0x00;
+                a[3] = 0x00;
+                a[4] = 0x00;
+                a[5] = 0x00;
+                a[6] = 0x00;
+                a[7] = 0x00;
+                //uint8_t b[8] = {0x9E, 0x0F, 0x01, 0x00, 0xDA, 0x05, 0x01, 0x00};
+                USBHID_sendReport( a, HID0_INTFNUM);
 
 
 
+                if (((P1IN & pin2) == pin2) && isQueued){
+                            outputs[currBit] = 0x00;
+                            currBit+= 1;
+
+
+                            isQueued = false;
+
+                            P2OUT =   (outputs[6] & pin7) | (outputs[5] & pin6)
+                                    | (outputs[4] & pin5) | (outputs[3] & pin4) | (outputs[2] & pin3)
+                                    | (outputs[1] & pin2) | (outputs[0] & pin0);
+                        }
+
+                        else if(((P1IN & pin3) == pin3) && isQueued ){
+                            outputs[currBit] = pinVal(currBit);
+                            currBit+=1;
+                            isQueued = false;
+                            P2OUT =   (outputs[6] & pin7) | (outputs[5] & pin6)
+                                    | (outputs[4] & pin5) | (outputs[3] & pin4) | (outputs[2] & pin3)
+                                    | (outputs[1] & pin2) | (outputs[0] & pin0);
+                        }
+
+                        else if (((P1IN & pin4) == pin4) && isQueued){
+
+
+
+                            for(i =0; i < 7; i++){
+                                outputs[i] = 0x00;
+                            }
+
+                            currBit = 0;
+
+                            isQueued = false;
+
+                            P2OUT =   (outputs[6] & pin7) | (outputs[5] & pin6)
+                                    | (outputs[4] & pin5) | (outputs[3] & pin4) | (outputs[2] & pin3)
+                                    | (outputs[1] & pin2) | (outputs[0] & pin0);
+                        }
 
 
 
 
+                        if(      (((P1IN & pin2) != pin2) && ((P1IN & pin3) != pin3))      &&    (((P1IN & pin4) != pin4))){
+                                           isQueued = true;
+                        }
 
 
+                        if(currBit == 7){
+                            currBit = 0;
 
+                            for(f = 0; f<7; f++){
+                                outputs[f] = 0x00;
+                            }
 
+                            for (b = 1000000; b>0; b--);
 
+                            P2OUT =   (outputs[6] & pin7) | (outputs[5] & pin6)
+                                    | (outputs[4] & pin5) | (outputs[3] & pin4) | (outputs[2] & pin3)
+                                    | (outputs[1] & pin2) | (outputs[0] & pin0);
+                        }
 
 
 
 
 //                /************* HID keyboard portion ************************/
-//                if (button1Pressed){
+//                if ((P1IN & pin5) == pin5){
 //
 //
 //                    a[0] = 0x02;
@@ -298,7 +393,7 @@ void main (void){
 //                    a[7] = 0x00;
 //                    //uint8_t b[8] = {0x9E, 0x0F, 0x01, 0x00, 0xDA, 0x05, 0x01, 0x00};
 //                    USBHID_sendReport( a, HID0_INTFNUM);
-//                    button1Pressed = FALSE;
+//
 //
 //                }
 
