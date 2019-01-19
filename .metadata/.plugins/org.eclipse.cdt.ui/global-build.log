@@ -6973,3 +6973,230 @@ gmake: *** [all] Error 2
  
 
 **** Build Finished ****
+
+**** Build of configuration Debug for project ASCII-Keyboard ****
+
+"C:\\ti\\ccsv7\\utils\\bin\\gmake" -k -j 12 all -O 
+ 
+'Building file: "../hal.c"'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/bin/cl430" -vmspx --data_model=restricted -O3 --use_hw_mpy=F5 --include_path="C:/ti/ccsv7/ccs_base/msp430/include" --include_path="C:/Users/Dylan/Documents/Github/ASCII-Keyboard/ASCII-Keyboard" --include_path="C:/Users/Dylan/Documents/Github/ASCII-Keyboard/ASCII-Keyboard/driverlib/MSP430F5xx_6xx" --include_path="C:/Users/Dylan/Documents/Github/ASCII-Keyboard/ASCII-Keyboard/USB_config" --include_path="C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/include" --advice:power="none" --define=__MSP430F5529__ --define=DEPRECATED -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="hal.d_raw"  "../hal.c"
+'Finished building: "../hal.c"'
+ 
+'Building file: "../main.c"'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/bin/cl430" -vmspx --data_model=restricted -O3 --use_hw_mpy=F5 --include_path="C:/ti/ccsv7/ccs_base/msp430/include" --include_path="C:/Users/Dylan/Documents/Github/ASCII-Keyboard/ASCII-Keyboard" --include_path="C:/Users/Dylan/Documents/Github/ASCII-Keyboard/ASCII-Keyboard/driverlib/MSP430F5xx_6xx" --include_path="C:/Users/Dylan/Documents/Github/ASCII-Keyboard/ASCII-Keyboard/USB_config" --include_path="C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/include" --advice:power="none" --define=__MSP430F5529__ --define=DEPRECATED -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+"../main.c", line 256: warning #70-D: integer conversion resulted in truncation
+'Finished building: "../main.c"'
+ 
+'Building target: "ASCII-Keyboard.out"'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/bin/cl430" -vmspx --data_model=restricted -O3 --use_hw_mpy=F5 --advice:power="none" --define=__MSP430F5529__ --define=DEPRECATED -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 -z -m"ASCII-Keyboard.map" --heap_size=160 --stack_size=160 --cinit_hold_wdt=on -i"C:/ti/ccsv7/ccs_base/msp430/include" -i"C:/ti/ccsv7/ccs_base/msp430/lib/5xx_6xx_FRxx" -i"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/lib" -i"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="ASCII-Keyboard_linkInfo.xml" --use_hw_mpy=F5 --rom_model -o "ASCII-Keyboard.out" "./ASCIITranslator.obj" "./hal.obj" "./main.obj" "./system_pre_init.obj" "./USB_API/USB_CDC_API/UsbCdc.obj" "./USB_API/USB_Common/usb.obj" "./USB_API/USB_Common/usbdma.obj" "./USB_API/USB_HID_API/UsbHid.obj" "./USB_API/USB_HID_API/UsbHidReq.obj" "./USB_API/USB_MSC_API/UsbMscReq.obj" "./USB_API/USB_MSC_API/UsbMscScsi.obj" "./USB_API/USB_MSC_API/UsbMscStateMachine.obj" "./USB_API/USB_PHDC_API/UsbPHDC.obj" "./USB_app/usbEventHandling.obj" "./USB_config/UsbIsr.obj" "./USB_config/descriptors.obj" "./driverlib/MSP430F5xx_6xx/adc10_a.obj" "./driverlib/MSP430F5xx_6xx/adc12_a.obj" "./driverlib/MSP430F5xx_6xx/aes.obj" "./driverlib/MSP430F5xx_6xx/battbak.obj" "./driverlib/MSP430F5xx_6xx/comp_b.obj" "./driverlib/MSP430F5xx_6xx/crc.obj" "./driverlib/MSP430F5xx_6xx/ctsd16.obj" "./driverlib/MSP430F5xx_6xx/dac12_a.obj" "./driverlib/MSP430F5xx_6xx/dma.obj" "./driverlib/MSP430F5xx_6xx/eusci_a_spi.obj" "./driverlib/MSP430F5xx_6xx/eusci_a_uart.obj" "./driverlib/MSP430F5xx_6xx/eusci_b_i2c.obj" "./driverlib/MSP430F5xx_6xx/eusci_b_spi.obj" "./driverlib/MSP430F5xx_6xx/flashctl.obj" "./driverlib/MSP430F5xx_6xx/gpio.obj" "./driverlib/MSP430F5xx_6xx/lcd_b.obj" "./driverlib/MSP430F5xx_6xx/ldopwr.obj" "./driverlib/MSP430F5xx_6xx/mpy32.obj" "./driverlib/MSP430F5xx_6xx/oa.obj" "./driverlib/MSP430F5xx_6xx/pmap.obj" "./driverlib/MSP430F5xx_6xx/pmm.obj" "./driverlib/MSP430F5xx_6xx/ram.obj" "./driverlib/MSP430F5xx_6xx/ref.obj" "./driverlib/MSP430F5xx_6xx/rtc_a.obj" "./driverlib/MSP430F5xx_6xx/rtc_b.obj" "./driverlib/MSP430F5xx_6xx/rtc_c.obj" "./driverlib/MSP430F5xx_6xx/sd24_b.obj" "./driverlib/MSP430F5xx_6xx/sfr.obj" "./driverlib/MSP430F5xx_6xx/sysctl.obj" "./driverlib/MSP430F5xx_6xx/tec.obj" "./driverlib/MSP430F5xx_6xx/timer_a.obj" "./driverlib/MSP430F5xx_6xx/timer_b.obj" "./driverlib/MSP430F5xx_6xx/timer_d.obj" "./driverlib/MSP430F5xx_6xx/tlv.obj" "./driverlib/MSP430F5xx_6xx/ucs.obj" "./driverlib/MSP430F5xx_6xx/usci_a_spi.obj" "./driverlib/MSP430F5xx_6xx/usci_a_uart.obj" "./driverlib/MSP430F5xx_6xx/usci_b_i2c.obj" "./driverlib/MSP430F5xx_6xx/usci_b_spi.obj" "./driverlib/MSP430F5xx_6xx/wdt_a.obj" "../lnk_msp430f5529.cmd" "../USB_API/msp430USB.cmd"  -llibmath.a -llibc.a 
+<Linking>
+
+ undefined       first referenced              
+  symbol             in file                   
+ ---------       ----------------              
+ keySendComplete ./USB_app/usbEventHandling.obj
+
+error #10234-D: unresolved symbols remain
+error #10010: errors encountered during linking; "ASCII-Keyboard.out" not built
+
+>> Compilation failure
+makefile:216: recipe for target 'ASCII-Keyboard.out' failed
+gmake[1]: *** [ASCII-Keyboard.out] Error 1
+makefile:212: recipe for target 'all' failed
+gmake: *** [all] Error 2
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project ASCII-Keyboard ****
+
+"C:\\ti\\ccsv7\\utils\\bin\\gmake" -k -j 12 all -O 
+ 
+'Building file: "../hal.c"'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/bin/cl430" -vmspx --data_model=restricted -O3 --use_hw_mpy=F5 --include_path="C:/ti/ccsv7/ccs_base/msp430/include" --include_path="C:/Users/Dylan/Documents/Github/ASCII-Keyboard/ASCII-Keyboard" --include_path="C:/Users/Dylan/Documents/Github/ASCII-Keyboard/ASCII-Keyboard/driverlib/MSP430F5xx_6xx" --include_path="C:/Users/Dylan/Documents/Github/ASCII-Keyboard/ASCII-Keyboard/USB_config" --include_path="C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/include" --advice:power="none" --define=__MSP430F5529__ --define=DEPRECATED -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="hal.d_raw"  "../hal.c"
+'Finished building: "../hal.c"'
+ 
+'Building target: "ASCII-Keyboard.out"'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/bin/cl430" -vmspx --data_model=restricted -O3 --use_hw_mpy=F5 --advice:power="none" --define=__MSP430F5529__ --define=DEPRECATED -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 -z -m"ASCII-Keyboard.map" --heap_size=160 --stack_size=160 --cinit_hold_wdt=on -i"C:/ti/ccsv7/ccs_base/msp430/include" -i"C:/ti/ccsv7/ccs_base/msp430/lib/5xx_6xx_FRxx" -i"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/lib" -i"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="ASCII-Keyboard_linkInfo.xml" --use_hw_mpy=F5 --rom_model -o "ASCII-Keyboard.out" "./ASCIITranslator.obj" "./hal.obj" "./main.obj" "./system_pre_init.obj" "./USB_API/USB_CDC_API/UsbCdc.obj" "./USB_API/USB_Common/usb.obj" "./USB_API/USB_Common/usbdma.obj" "./USB_API/USB_HID_API/UsbHid.obj" "./USB_API/USB_HID_API/UsbHidReq.obj" "./USB_API/USB_MSC_API/UsbMscReq.obj" "./USB_API/USB_MSC_API/UsbMscScsi.obj" "./USB_API/USB_MSC_API/UsbMscStateMachine.obj" "./USB_API/USB_PHDC_API/UsbPHDC.obj" "./USB_app/usbEventHandling.obj" "./USB_config/UsbIsr.obj" "./USB_config/descriptors.obj" "./driverlib/MSP430F5xx_6xx/adc10_a.obj" "./driverlib/MSP430F5xx_6xx/adc12_a.obj" "./driverlib/MSP430F5xx_6xx/aes.obj" "./driverlib/MSP430F5xx_6xx/battbak.obj" "./driverlib/MSP430F5xx_6xx/comp_b.obj" "./driverlib/MSP430F5xx_6xx/crc.obj" "./driverlib/MSP430F5xx_6xx/ctsd16.obj" "./driverlib/MSP430F5xx_6xx/dac12_a.obj" "./driverlib/MSP430F5xx_6xx/dma.obj" "./driverlib/MSP430F5xx_6xx/eusci_a_spi.obj" "./driverlib/MSP430F5xx_6xx/eusci_a_uart.obj" "./driverlib/MSP430F5xx_6xx/eusci_b_i2c.obj" "./driverlib/MSP430F5xx_6xx/eusci_b_spi.obj" "./driverlib/MSP430F5xx_6xx/flashctl.obj" "./driverlib/MSP430F5xx_6xx/gpio.obj" "./driverlib/MSP430F5xx_6xx/lcd_b.obj" "./driverlib/MSP430F5xx_6xx/ldopwr.obj" "./driverlib/MSP430F5xx_6xx/mpy32.obj" "./driverlib/MSP430F5xx_6xx/oa.obj" "./driverlib/MSP430F5xx_6xx/pmap.obj" "./driverlib/MSP430F5xx_6xx/pmm.obj" "./driverlib/MSP430F5xx_6xx/ram.obj" "./driverlib/MSP430F5xx_6xx/ref.obj" "./driverlib/MSP430F5xx_6xx/rtc_a.obj" "./driverlib/MSP430F5xx_6xx/rtc_b.obj" "./driverlib/MSP430F5xx_6xx/rtc_c.obj" "./driverlib/MSP430F5xx_6xx/sd24_b.obj" "./driverlib/MSP430F5xx_6xx/sfr.obj" "./driverlib/MSP430F5xx_6xx/sysctl.obj" "./driverlib/MSP430F5xx_6xx/tec.obj" "./driverlib/MSP430F5xx_6xx/timer_a.obj" "./driverlib/MSP430F5xx_6xx/timer_b.obj" "./driverlib/MSP430F5xx_6xx/timer_d.obj" "./driverlib/MSP430F5xx_6xx/tlv.obj" "./driverlib/MSP430F5xx_6xx/ucs.obj" "./driverlib/MSP430F5xx_6xx/usci_a_spi.obj" "./driverlib/MSP430F5xx_6xx/usci_a_uart.obj" "./driverlib/MSP430F5xx_6xx/usci_b_i2c.obj" "./driverlib/MSP430F5xx_6xx/usci_b_spi.obj" "./driverlib/MSP430F5xx_6xx/wdt_a.obj" "../lnk_msp430f5529.cmd" "../USB_API/msp430USB.cmd"  -llibmath.a -llibc.a 
+<Linking>
+
+ undefined       first referenced              
+  symbol             in file                   
+ ---------       ----------------              
+ keySendComplete ./USB_app/usbEventHandling.obj
+
+error #10234-D: unresolved symbols remain
+error #10010: errors encountered during linking; "ASCII-Keyboard.out" not built
+
+>> Compilation failure
+makefile:216: recipe for target 'ASCII-Keyboard.out' failed
+gmake[1]: *** [ASCII-Keyboard.out] Error 1
+makefile:212: recipe for target 'all' failed
+gmake: *** [all] Error 2
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project ASCII-Keyboard ****
+
+"C:\\ti\\ccsv7\\utils\\bin\\gmake" -k -j 12 all -O 
+ 
+'Building file: "../USB_app/usbEventHandling.c"'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/bin/cl430" -vmspx --data_model=restricted -O3 --use_hw_mpy=F5 --include_path="C:/ti/ccsv7/ccs_base/msp430/include" --include_path="C:/Users/Dylan/Documents/Github/ASCII-Keyboard/ASCII-Keyboard" --include_path="C:/Users/Dylan/Documents/Github/ASCII-Keyboard/ASCII-Keyboard/driverlib/MSP430F5xx_6xx" --include_path="C:/Users/Dylan/Documents/Github/ASCII-Keyboard/ASCII-Keyboard/USB_config" --include_path="C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/include" --advice:power="none" --define=__MSP430F5529__ --define=DEPRECATED -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="USB_app/usbEventHandling.d_raw" --obj_directory="USB_app"  "../USB_app/usbEventHandling.c"
+'Finished building: "../USB_app/usbEventHandling.c"'
+ 
+'Building target: "ASCII-Keyboard.out"'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/bin/cl430" -vmspx --data_model=restricted -O3 --use_hw_mpy=F5 --advice:power="none" --define=__MSP430F5529__ --define=DEPRECATED -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 -z -m"ASCII-Keyboard.map" --heap_size=160 --stack_size=160 --cinit_hold_wdt=on -i"C:/ti/ccsv7/ccs_base/msp430/include" -i"C:/ti/ccsv7/ccs_base/msp430/lib/5xx_6xx_FRxx" -i"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/lib" -i"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="ASCII-Keyboard_linkInfo.xml" --use_hw_mpy=F5 --rom_model -o "ASCII-Keyboard.out" "./ASCIITranslator.obj" "./hal.obj" "./main.obj" "./system_pre_init.obj" "./USB_API/USB_CDC_API/UsbCdc.obj" "./USB_API/USB_Common/usb.obj" "./USB_API/USB_Common/usbdma.obj" "./USB_API/USB_HID_API/UsbHid.obj" "./USB_API/USB_HID_API/UsbHidReq.obj" "./USB_API/USB_MSC_API/UsbMscReq.obj" "./USB_API/USB_MSC_API/UsbMscScsi.obj" "./USB_API/USB_MSC_API/UsbMscStateMachine.obj" "./USB_API/USB_PHDC_API/UsbPHDC.obj" "./USB_app/usbEventHandling.obj" "./USB_config/UsbIsr.obj" "./USB_config/descriptors.obj" "./driverlib/MSP430F5xx_6xx/adc10_a.obj" "./driverlib/MSP430F5xx_6xx/adc12_a.obj" "./driverlib/MSP430F5xx_6xx/aes.obj" "./driverlib/MSP430F5xx_6xx/battbak.obj" "./driverlib/MSP430F5xx_6xx/comp_b.obj" "./driverlib/MSP430F5xx_6xx/crc.obj" "./driverlib/MSP430F5xx_6xx/ctsd16.obj" "./driverlib/MSP430F5xx_6xx/dac12_a.obj" "./driverlib/MSP430F5xx_6xx/dma.obj" "./driverlib/MSP430F5xx_6xx/eusci_a_spi.obj" "./driverlib/MSP430F5xx_6xx/eusci_a_uart.obj" "./driverlib/MSP430F5xx_6xx/eusci_b_i2c.obj" "./driverlib/MSP430F5xx_6xx/eusci_b_spi.obj" "./driverlib/MSP430F5xx_6xx/flashctl.obj" "./driverlib/MSP430F5xx_6xx/gpio.obj" "./driverlib/MSP430F5xx_6xx/lcd_b.obj" "./driverlib/MSP430F5xx_6xx/ldopwr.obj" "./driverlib/MSP430F5xx_6xx/mpy32.obj" "./driverlib/MSP430F5xx_6xx/oa.obj" "./driverlib/MSP430F5xx_6xx/pmap.obj" "./driverlib/MSP430F5xx_6xx/pmm.obj" "./driverlib/MSP430F5xx_6xx/ram.obj" "./driverlib/MSP430F5xx_6xx/ref.obj" "./driverlib/MSP430F5xx_6xx/rtc_a.obj" "./driverlib/MSP430F5xx_6xx/rtc_b.obj" "./driverlib/MSP430F5xx_6xx/rtc_c.obj" "./driverlib/MSP430F5xx_6xx/sd24_b.obj" "./driverlib/MSP430F5xx_6xx/sfr.obj" "./driverlib/MSP430F5xx_6xx/sysctl.obj" "./driverlib/MSP430F5xx_6xx/tec.obj" "./driverlib/MSP430F5xx_6xx/timer_a.obj" "./driverlib/MSP430F5xx_6xx/timer_b.obj" "./driverlib/MSP430F5xx_6xx/timer_d.obj" "./driverlib/MSP430F5xx_6xx/tlv.obj" "./driverlib/MSP430F5xx_6xx/ucs.obj" "./driverlib/MSP430F5xx_6xx/usci_a_spi.obj" "./driverlib/MSP430F5xx_6xx/usci_a_uart.obj" "./driverlib/MSP430F5xx_6xx/usci_b_i2c.obj" "./driverlib/MSP430F5xx_6xx/usci_b_spi.obj" "./driverlib/MSP430F5xx_6xx/wdt_a.obj" "../lnk_msp430f5529.cmd" "../USB_API/msp430USB.cmd"  -llibmath.a -llibc.a 
+<Linking>
+
+ undefined                  first referenced                
+  symbol                        in file                     
+ ---------                  ----------------                
+ USBHID_handleSendCompleted ./USB_API/USB_HID_API/UsbHid.obj
+
+error #10234-D: unresolved symbols remain
+error #10010: errors encountered during linking; "ASCII-Keyboard.out" not built
+
+>> Compilation failure
+makefile:216: recipe for target 'ASCII-Keyboard.out' failed
+gmake[1]: *** [ASCII-Keyboard.out] Error 1
+makefile:212: recipe for target 'all' failed
+gmake: *** [all] Error 2
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project ASCII-Keyboard ****
+
+"C:\\ti\\ccsv7\\utils\\bin\\gmake" -k -j 12 all -O 
+ 
+'Building file: "../USB_app/usbEventHandling.c"'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/bin/cl430" -vmspx --data_model=restricted -O3 --use_hw_mpy=F5 --include_path="C:/ti/ccsv7/ccs_base/msp430/include" --include_path="C:/Users/Dylan/Documents/Github/ASCII-Keyboard/ASCII-Keyboard" --include_path="C:/Users/Dylan/Documents/Github/ASCII-Keyboard/ASCII-Keyboard/driverlib/MSP430F5xx_6xx" --include_path="C:/Users/Dylan/Documents/Github/ASCII-Keyboard/ASCII-Keyboard/USB_config" --include_path="C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/include" --advice:power="none" --define=__MSP430F5529__ --define=DEPRECATED -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="USB_app/usbEventHandling.d_raw" --obj_directory="USB_app"  "../USB_app/usbEventHandling.c"
+'Finished building: "../USB_app/usbEventHandling.c"'
+ 
+'Building file: "../hal.c"'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/bin/cl430" -vmspx --data_model=restricted -O3 --use_hw_mpy=F5 --include_path="C:/ti/ccsv7/ccs_base/msp430/include" --include_path="C:/Users/Dylan/Documents/Github/ASCII-Keyboard/ASCII-Keyboard" --include_path="C:/Users/Dylan/Documents/Github/ASCII-Keyboard/ASCII-Keyboard/driverlib/MSP430F5xx_6xx" --include_path="C:/Users/Dylan/Documents/Github/ASCII-Keyboard/ASCII-Keyboard/USB_config" --include_path="C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/include" --advice:power="none" --define=__MSP430F5529__ --define=DEPRECATED -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="hal.d_raw"  "../hal.c"
+'Finished building: "../hal.c"'
+ 
+'Building target: "ASCII-Keyboard.out"'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/bin/cl430" -vmspx --data_model=restricted -O3 --use_hw_mpy=F5 --advice:power="none" --define=__MSP430F5529__ --define=DEPRECATED -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 -z -m"ASCII-Keyboard.map" --heap_size=160 --stack_size=160 --cinit_hold_wdt=on -i"C:/ti/ccsv7/ccs_base/msp430/include" -i"C:/ti/ccsv7/ccs_base/msp430/lib/5xx_6xx_FRxx" -i"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/lib" -i"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="ASCII-Keyboard_linkInfo.xml" --use_hw_mpy=F5 --rom_model -o "ASCII-Keyboard.out" "./ASCIITranslator.obj" "./hal.obj" "./main.obj" "./system_pre_init.obj" "./USB_API/USB_CDC_API/UsbCdc.obj" "./USB_API/USB_Common/usb.obj" "./USB_API/USB_Common/usbdma.obj" "./USB_API/USB_HID_API/UsbHid.obj" "./USB_API/USB_HID_API/UsbHidReq.obj" "./USB_API/USB_MSC_API/UsbMscReq.obj" "./USB_API/USB_MSC_API/UsbMscScsi.obj" "./USB_API/USB_MSC_API/UsbMscStateMachine.obj" "./USB_API/USB_PHDC_API/UsbPHDC.obj" "./USB_app/usbEventHandling.obj" "./USB_config/UsbIsr.obj" "./USB_config/descriptors.obj" "./driverlib/MSP430F5xx_6xx/adc10_a.obj" "./driverlib/MSP430F5xx_6xx/adc12_a.obj" "./driverlib/MSP430F5xx_6xx/aes.obj" "./driverlib/MSP430F5xx_6xx/battbak.obj" "./driverlib/MSP430F5xx_6xx/comp_b.obj" "./driverlib/MSP430F5xx_6xx/crc.obj" "./driverlib/MSP430F5xx_6xx/ctsd16.obj" "./driverlib/MSP430F5xx_6xx/dac12_a.obj" "./driverlib/MSP430F5xx_6xx/dma.obj" "./driverlib/MSP430F5xx_6xx/eusci_a_spi.obj" "./driverlib/MSP430F5xx_6xx/eusci_a_uart.obj" "./driverlib/MSP430F5xx_6xx/eusci_b_i2c.obj" "./driverlib/MSP430F5xx_6xx/eusci_b_spi.obj" "./driverlib/MSP430F5xx_6xx/flashctl.obj" "./driverlib/MSP430F5xx_6xx/gpio.obj" "./driverlib/MSP430F5xx_6xx/lcd_b.obj" "./driverlib/MSP430F5xx_6xx/ldopwr.obj" "./driverlib/MSP430F5xx_6xx/mpy32.obj" "./driverlib/MSP430F5xx_6xx/oa.obj" "./driverlib/MSP430F5xx_6xx/pmap.obj" "./driverlib/MSP430F5xx_6xx/pmm.obj" "./driverlib/MSP430F5xx_6xx/ram.obj" "./driverlib/MSP430F5xx_6xx/ref.obj" "./driverlib/MSP430F5xx_6xx/rtc_a.obj" "./driverlib/MSP430F5xx_6xx/rtc_b.obj" "./driverlib/MSP430F5xx_6xx/rtc_c.obj" "./driverlib/MSP430F5xx_6xx/sd24_b.obj" "./driverlib/MSP430F5xx_6xx/sfr.obj" "./driverlib/MSP430F5xx_6xx/sysctl.obj" "./driverlib/MSP430F5xx_6xx/tec.obj" "./driverlib/MSP430F5xx_6xx/timer_a.obj" "./driverlib/MSP430F5xx_6xx/timer_b.obj" "./driverlib/MSP430F5xx_6xx/timer_d.obj" "./driverlib/MSP430F5xx_6xx/tlv.obj" "./driverlib/MSP430F5xx_6xx/ucs.obj" "./driverlib/MSP430F5xx_6xx/usci_a_spi.obj" "./driverlib/MSP430F5xx_6xx/usci_a_uart.obj" "./driverlib/MSP430F5xx_6xx/usci_b_i2c.obj" "./driverlib/MSP430F5xx_6xx/usci_b_spi.obj" "./driverlib/MSP430F5xx_6xx/wdt_a.obj" "../lnk_msp430f5529.cmd" "../USB_API/msp430USB.cmd"  -llibmath.a -llibc.a 
+<Linking>
+
+ undefined       first referenced              
+  symbol             in file                   
+ ---------       ----------------              
+ keySendComplete ./USB_app/usbEventHandling.obj
+
+error #10234-D: unresolved symbols remain
+error #10010: errors encountered during linking; "ASCII-Keyboard.out" not built
+
+>> Compilation failure
+makefile:216: recipe for target 'ASCII-Keyboard.out' failed
+gmake[1]: *** [ASCII-Keyboard.out] Error 1
+makefile:212: recipe for target 'all' failed
+gmake: *** [all] Error 2
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project ASCII-Keyboard ****
+
+"C:\\ti\\ccsv7\\utils\\bin\\gmake" -k -j 12 all -O 
+ 
+'Building file: "../USB_app/usbEventHandling.c"'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/bin/cl430" -vmspx --data_model=restricted -O3 --use_hw_mpy=F5 --include_path="C:/ti/ccsv7/ccs_base/msp430/include" --include_path="C:/Users/Dylan/Documents/Github/ASCII-Keyboard/ASCII-Keyboard" --include_path="C:/Users/Dylan/Documents/Github/ASCII-Keyboard/ASCII-Keyboard/driverlib/MSP430F5xx_6xx" --include_path="C:/Users/Dylan/Documents/Github/ASCII-Keyboard/ASCII-Keyboard/USB_config" --include_path="C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/include" --advice:power="none" --define=__MSP430F5529__ --define=DEPRECATED -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="USB_app/usbEventHandling.d_raw" --obj_directory="USB_app"  "../USB_app/usbEventHandling.c"
+'Finished building: "../USB_app/usbEventHandling.c"'
+ 
+'Building file: "../hal.c"'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/bin/cl430" -vmspx --data_model=restricted -O3 --use_hw_mpy=F5 --include_path="C:/ti/ccsv7/ccs_base/msp430/include" --include_path="C:/Users/Dylan/Documents/Github/ASCII-Keyboard/ASCII-Keyboard" --include_path="C:/Users/Dylan/Documents/Github/ASCII-Keyboard/ASCII-Keyboard/driverlib/MSP430F5xx_6xx" --include_path="C:/Users/Dylan/Documents/Github/ASCII-Keyboard/ASCII-Keyboard/USB_config" --include_path="C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/include" --advice:power="none" --define=__MSP430F5529__ --define=DEPRECATED -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="hal.d_raw"  "../hal.c"
+'Finished building: "../hal.c"'
+ 
+'Building target: "ASCII-Keyboard.out"'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/bin/cl430" -vmspx --data_model=restricted -O3 --use_hw_mpy=F5 --advice:power="none" --define=__MSP430F5529__ --define=DEPRECATED -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 -z -m"ASCII-Keyboard.map" --heap_size=160 --stack_size=160 --cinit_hold_wdt=on -i"C:/ti/ccsv7/ccs_base/msp430/include" -i"C:/ti/ccsv7/ccs_base/msp430/lib/5xx_6xx_FRxx" -i"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/lib" -i"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="ASCII-Keyboard_linkInfo.xml" --use_hw_mpy=F5 --rom_model -o "ASCII-Keyboard.out" "./ASCIITranslator.obj" "./hal.obj" "./main.obj" "./system_pre_init.obj" "./USB_API/USB_CDC_API/UsbCdc.obj" "./USB_API/USB_Common/usb.obj" "./USB_API/USB_Common/usbdma.obj" "./USB_API/USB_HID_API/UsbHid.obj" "./USB_API/USB_HID_API/UsbHidReq.obj" "./USB_API/USB_MSC_API/UsbMscReq.obj" "./USB_API/USB_MSC_API/UsbMscScsi.obj" "./USB_API/USB_MSC_API/UsbMscStateMachine.obj" "./USB_API/USB_PHDC_API/UsbPHDC.obj" "./USB_app/usbEventHandling.obj" "./USB_config/UsbIsr.obj" "./USB_config/descriptors.obj" "./driverlib/MSP430F5xx_6xx/adc10_a.obj" "./driverlib/MSP430F5xx_6xx/adc12_a.obj" "./driverlib/MSP430F5xx_6xx/aes.obj" "./driverlib/MSP430F5xx_6xx/battbak.obj" "./driverlib/MSP430F5xx_6xx/comp_b.obj" "./driverlib/MSP430F5xx_6xx/crc.obj" "./driverlib/MSP430F5xx_6xx/ctsd16.obj" "./driverlib/MSP430F5xx_6xx/dac12_a.obj" "./driverlib/MSP430F5xx_6xx/dma.obj" "./driverlib/MSP430F5xx_6xx/eusci_a_spi.obj" "./driverlib/MSP430F5xx_6xx/eusci_a_uart.obj" "./driverlib/MSP430F5xx_6xx/eusci_b_i2c.obj" "./driverlib/MSP430F5xx_6xx/eusci_b_spi.obj" "./driverlib/MSP430F5xx_6xx/flashctl.obj" "./driverlib/MSP430F5xx_6xx/gpio.obj" "./driverlib/MSP430F5xx_6xx/lcd_b.obj" "./driverlib/MSP430F5xx_6xx/ldopwr.obj" "./driverlib/MSP430F5xx_6xx/mpy32.obj" "./driverlib/MSP430F5xx_6xx/oa.obj" "./driverlib/MSP430F5xx_6xx/pmap.obj" "./driverlib/MSP430F5xx_6xx/pmm.obj" "./driverlib/MSP430F5xx_6xx/ram.obj" "./driverlib/MSP430F5xx_6xx/ref.obj" "./driverlib/MSP430F5xx_6xx/rtc_a.obj" "./driverlib/MSP430F5xx_6xx/rtc_b.obj" "./driverlib/MSP430F5xx_6xx/rtc_c.obj" "./driverlib/MSP430F5xx_6xx/sd24_b.obj" "./driverlib/MSP430F5xx_6xx/sfr.obj" "./driverlib/MSP430F5xx_6xx/sysctl.obj" "./driverlib/MSP430F5xx_6xx/tec.obj" "./driverlib/MSP430F5xx_6xx/timer_a.obj" "./driverlib/MSP430F5xx_6xx/timer_b.obj" "./driverlib/MSP430F5xx_6xx/timer_d.obj" "./driverlib/MSP430F5xx_6xx/tlv.obj" "./driverlib/MSP430F5xx_6xx/ucs.obj" "./driverlib/MSP430F5xx_6xx/usci_a_spi.obj" "./driverlib/MSP430F5xx_6xx/usci_a_uart.obj" "./driverlib/MSP430F5xx_6xx/usci_b_i2c.obj" "./driverlib/MSP430F5xx_6xx/usci_b_spi.obj" "./driverlib/MSP430F5xx_6xx/wdt_a.obj" "../lnk_msp430f5529.cmd" "../USB_API/msp430USB.cmd"  -llibmath.a -llibc.a 
+<Linking>
+'Finished building target: "ASCII-Keyboard.out"'
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project ASCII-Keyboard ****
+
+"C:\\ti\\ccsv7\\utils\\bin\\gmake" -k -j 12 all -O 
+ 
+gmake[1]: 'ASCII-Keyboard.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project ASCII-Keyboard ****
+
+"C:\\ti\\ccsv7\\utils\\bin\\gmake" -k -j 12 all -O 
+ 
+'Building file: "../main.c"'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/bin/cl430" -vmspx --data_model=restricted -O3 --use_hw_mpy=F5 --include_path="C:/ti/ccsv7/ccs_base/msp430/include" --include_path="C:/Users/Dylan/Documents/Github/ASCII-Keyboard/ASCII-Keyboard" --include_path="C:/Users/Dylan/Documents/Github/ASCII-Keyboard/ASCII-Keyboard/driverlib/MSP430F5xx_6xx" --include_path="C:/Users/Dylan/Documents/Github/ASCII-Keyboard/ASCII-Keyboard/USB_config" --include_path="C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/include" --advice:power="none" --define=__MSP430F5529__ --define=DEPRECATED -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+"../main.c", line 247: warning #70-D: integer conversion resulted in truncation
+'Finished building: "../main.c"'
+ 
+'Building target: "ASCII-Keyboard.out"'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/bin/cl430" -vmspx --data_model=restricted -O3 --use_hw_mpy=F5 --advice:power="none" --define=__MSP430F5529__ --define=DEPRECATED -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 -z -m"ASCII-Keyboard.map" --heap_size=160 --stack_size=160 --cinit_hold_wdt=on -i"C:/ti/ccsv7/ccs_base/msp430/include" -i"C:/ti/ccsv7/ccs_base/msp430/lib/5xx_6xx_FRxx" -i"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/lib" -i"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="ASCII-Keyboard_linkInfo.xml" --use_hw_mpy=F5 --rom_model -o "ASCII-Keyboard.out" "./ASCIITranslator.obj" "./hal.obj" "./main.obj" "./system_pre_init.obj" "./USB_API/USB_CDC_API/UsbCdc.obj" "./USB_API/USB_Common/usb.obj" "./USB_API/USB_Common/usbdma.obj" "./USB_API/USB_HID_API/UsbHid.obj" "./USB_API/USB_HID_API/UsbHidReq.obj" "./USB_API/USB_MSC_API/UsbMscReq.obj" "./USB_API/USB_MSC_API/UsbMscScsi.obj" "./USB_API/USB_MSC_API/UsbMscStateMachine.obj" "./USB_API/USB_PHDC_API/UsbPHDC.obj" "./USB_app/usbEventHandling.obj" "./USB_config/UsbIsr.obj" "./USB_config/descriptors.obj" "./driverlib/MSP430F5xx_6xx/adc10_a.obj" "./driverlib/MSP430F5xx_6xx/adc12_a.obj" "./driverlib/MSP430F5xx_6xx/aes.obj" "./driverlib/MSP430F5xx_6xx/battbak.obj" "./driverlib/MSP430F5xx_6xx/comp_b.obj" "./driverlib/MSP430F5xx_6xx/crc.obj" "./driverlib/MSP430F5xx_6xx/ctsd16.obj" "./driverlib/MSP430F5xx_6xx/dac12_a.obj" "./driverlib/MSP430F5xx_6xx/dma.obj" "./driverlib/MSP430F5xx_6xx/eusci_a_spi.obj" "./driverlib/MSP430F5xx_6xx/eusci_a_uart.obj" "./driverlib/MSP430F5xx_6xx/eusci_b_i2c.obj" "./driverlib/MSP430F5xx_6xx/eusci_b_spi.obj" "./driverlib/MSP430F5xx_6xx/flashctl.obj" "./driverlib/MSP430F5xx_6xx/gpio.obj" "./driverlib/MSP430F5xx_6xx/lcd_b.obj" "./driverlib/MSP430F5xx_6xx/ldopwr.obj" "./driverlib/MSP430F5xx_6xx/mpy32.obj" "./driverlib/MSP430F5xx_6xx/oa.obj" "./driverlib/MSP430F5xx_6xx/pmap.obj" "./driverlib/MSP430F5xx_6xx/pmm.obj" "./driverlib/MSP430F5xx_6xx/ram.obj" "./driverlib/MSP430F5xx_6xx/ref.obj" "./driverlib/MSP430F5xx_6xx/rtc_a.obj" "./driverlib/MSP430F5xx_6xx/rtc_b.obj" "./driverlib/MSP430F5xx_6xx/rtc_c.obj" "./driverlib/MSP430F5xx_6xx/sd24_b.obj" "./driverlib/MSP430F5xx_6xx/sfr.obj" "./driverlib/MSP430F5xx_6xx/sysctl.obj" "./driverlib/MSP430F5xx_6xx/tec.obj" "./driverlib/MSP430F5xx_6xx/timer_a.obj" "./driverlib/MSP430F5xx_6xx/timer_b.obj" "./driverlib/MSP430F5xx_6xx/timer_d.obj" "./driverlib/MSP430F5xx_6xx/tlv.obj" "./driverlib/MSP430F5xx_6xx/ucs.obj" "./driverlib/MSP430F5xx_6xx/usci_a_spi.obj" "./driverlib/MSP430F5xx_6xx/usci_a_uart.obj" "./driverlib/MSP430F5xx_6xx/usci_b_i2c.obj" "./driverlib/MSP430F5xx_6xx/usci_b_spi.obj" "./driverlib/MSP430F5xx_6xx/wdt_a.obj" "../lnk_msp430f5529.cmd" "../USB_API/msp430USB.cmd"  -llibmath.a -llibc.a 
+<Linking>
+'Finished building target: "ASCII-Keyboard.out"'
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project ASCII-Keyboard ****
+
+"C:\\ti\\ccsv7\\utils\\bin\\gmake" -k -j 12 all -O 
+ 
+'Building file: "../main.c"'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/bin/cl430" -vmspx --data_model=restricted -O3 --use_hw_mpy=F5 --include_path="C:/ti/ccsv7/ccs_base/msp430/include" --include_path="C:/Users/Dylan/Documents/Github/ASCII-Keyboard/ASCII-Keyboard" --include_path="C:/Users/Dylan/Documents/Github/ASCII-Keyboard/ASCII-Keyboard/driverlib/MSP430F5xx_6xx" --include_path="C:/Users/Dylan/Documents/Github/ASCII-Keyboard/ASCII-Keyboard/USB_config" --include_path="C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/include" --advice:power="none" --define=__MSP430F5529__ --define=DEPRECATED -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+
+>> Compilation failure
+subdir_rules.mk:23: recipe for target 'main.obj' failed
+"../main.c", line 217: warning #70-D: integer conversion resulted in truncation
+"../main.c", line 267: error #171: expected a declaration
+At end of source: warning #12-D: parsing restarts here after previous syntax error
+1 error detected in the compilation of "../main.c".
+gmake: *** [main.obj] Error 1
+gmake: Target 'all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project ASCII-Keyboard ****
+
+"C:\\ti\\ccsv7\\utils\\bin\\gmake" -k -j 12 all -O 
+ 
+'Building file: "../main.c"'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/bin/cl430" -vmspx --data_model=restricted -O3 --use_hw_mpy=F5 --include_path="C:/ti/ccsv7/ccs_base/msp430/include" --include_path="C:/Users/Dylan/Documents/Github/ASCII-Keyboard/ASCII-Keyboard" --include_path="C:/Users/Dylan/Documents/Github/ASCII-Keyboard/ASCII-Keyboard/driverlib/MSP430F5xx_6xx" --include_path="C:/Users/Dylan/Documents/Github/ASCII-Keyboard/ASCII-Keyboard/USB_config" --include_path="C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/include" --advice:power="none" --define=__MSP430F5529__ --define=DEPRECATED -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+"../main.c", line 217: warning #70-D: integer conversion resulted in truncation
+'Finished building: "../main.c"'
+ 
+'Building target: "ASCII-Keyboard.out"'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/bin/cl430" -vmspx --data_model=restricted -O3 --use_hw_mpy=F5 --advice:power="none" --define=__MSP430F5529__ --define=DEPRECATED -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 -z -m"ASCII-Keyboard.map" --heap_size=160 --stack_size=160 --cinit_hold_wdt=on -i"C:/ti/ccsv7/ccs_base/msp430/include" -i"C:/ti/ccsv7/ccs_base/msp430/lib/5xx_6xx_FRxx" -i"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/lib" -i"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.6.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="ASCII-Keyboard_linkInfo.xml" --use_hw_mpy=F5 --rom_model -o "ASCII-Keyboard.out" "./ASCIITranslator.obj" "./hal.obj" "./main.obj" "./system_pre_init.obj" "./USB_API/USB_CDC_API/UsbCdc.obj" "./USB_API/USB_Common/usb.obj" "./USB_API/USB_Common/usbdma.obj" "./USB_API/USB_HID_API/UsbHid.obj" "./USB_API/USB_HID_API/UsbHidReq.obj" "./USB_API/USB_MSC_API/UsbMscReq.obj" "./USB_API/USB_MSC_API/UsbMscScsi.obj" "./USB_API/USB_MSC_API/UsbMscStateMachine.obj" "./USB_API/USB_PHDC_API/UsbPHDC.obj" "./USB_app/usbEventHandling.obj" "./USB_config/UsbIsr.obj" "./USB_config/descriptors.obj" "./driverlib/MSP430F5xx_6xx/adc10_a.obj" "./driverlib/MSP430F5xx_6xx/adc12_a.obj" "./driverlib/MSP430F5xx_6xx/aes.obj" "./driverlib/MSP430F5xx_6xx/battbak.obj" "./driverlib/MSP430F5xx_6xx/comp_b.obj" "./driverlib/MSP430F5xx_6xx/crc.obj" "./driverlib/MSP430F5xx_6xx/ctsd16.obj" "./driverlib/MSP430F5xx_6xx/dac12_a.obj" "./driverlib/MSP430F5xx_6xx/dma.obj" "./driverlib/MSP430F5xx_6xx/eusci_a_spi.obj" "./driverlib/MSP430F5xx_6xx/eusci_a_uart.obj" "./driverlib/MSP430F5xx_6xx/eusci_b_i2c.obj" "./driverlib/MSP430F5xx_6xx/eusci_b_spi.obj" "./driverlib/MSP430F5xx_6xx/flashctl.obj" "./driverlib/MSP430F5xx_6xx/gpio.obj" "./driverlib/MSP430F5xx_6xx/lcd_b.obj" "./driverlib/MSP430F5xx_6xx/ldopwr.obj" "./driverlib/MSP430F5xx_6xx/mpy32.obj" "./driverlib/MSP430F5xx_6xx/oa.obj" "./driverlib/MSP430F5xx_6xx/pmap.obj" "./driverlib/MSP430F5xx_6xx/pmm.obj" "./driverlib/MSP430F5xx_6xx/ram.obj" "./driverlib/MSP430F5xx_6xx/ref.obj" "./driverlib/MSP430F5xx_6xx/rtc_a.obj" "./driverlib/MSP430F5xx_6xx/rtc_b.obj" "./driverlib/MSP430F5xx_6xx/rtc_c.obj" "./driverlib/MSP430F5xx_6xx/sd24_b.obj" "./driverlib/MSP430F5xx_6xx/sfr.obj" "./driverlib/MSP430F5xx_6xx/sysctl.obj" "./driverlib/MSP430F5xx_6xx/tec.obj" "./driverlib/MSP430F5xx_6xx/timer_a.obj" "./driverlib/MSP430F5xx_6xx/timer_b.obj" "./driverlib/MSP430F5xx_6xx/timer_d.obj" "./driverlib/MSP430F5xx_6xx/tlv.obj" "./driverlib/MSP430F5xx_6xx/ucs.obj" "./driverlib/MSP430F5xx_6xx/usci_a_spi.obj" "./driverlib/MSP430F5xx_6xx/usci_a_uart.obj" "./driverlib/MSP430F5xx_6xx/usci_b_i2c.obj" "./driverlib/MSP430F5xx_6xx/usci_b_spi.obj" "./driverlib/MSP430F5xx_6xx/wdt_a.obj" "../lnk_msp430f5529.cmd" "../USB_API/msp430USB.cmd"  -llibmath.a -llibc.a 
+<Linking>
+'Finished building target: "ASCII-Keyboard.out"'
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project ASCII-Keyboard ****
+
+"C:\\ti\\ccsv7\\utils\\bin\\gmake" -k -j 12 all -O 
+ 
+gmake[1]: 'ASCII-Keyboard.out' is up to date.
+
+**** Build Finished ****

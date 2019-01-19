@@ -58,7 +58,7 @@
 #include "USB_API/USB_PHDC_API/UsbPHDC.h"
 #endif
 
-extern volatile uint8_t keySendComplete;
+volatile uint8_t keySendComplete;
 
 /*
  * If this function gets executed, it's a sign that the output of the USB PLL has failed.

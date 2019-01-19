@@ -17,33 +17,10 @@
  *    its contributors may be used to endorse or promote products derived
  *    from this software without specific prior written permission.
  *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
- * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
- * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
- * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
- * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
- * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
- * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
- * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
- * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
- * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
- * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * --/COPYRIGHT--*/
-/*  
- * ======== main.c ========
- * Keyboard HID Demo:
- *
- * This example functions as a keyboard on the host. Once enumerated, pressing 
- * one of the target board?s buttons causes a string of six characters ? 
- * "msp430" -- to be "typed" at the PC?s cursor, wherever that cursor is.  
- * If the other button is held down while this happens, it acts as a shift key, 
- * causing the characters to become "MSP$#)".
- * Unlike the HID-Datapipe examples, this one does not communicate with the 
- * HID Demo Application.
-  +----------------------------------------------------------------------------+
- * Please refer to the Examples Guide for more details.
- *----------------------------------------------------------------------------*/
-#include <string.h>
+
+
+
 
 #include "driverlib.h"
 
@@ -51,14 +28,7 @@
 #include "USB_API/USB_Common/device.h"
 #include "USB_API/USB_Common/usb.h"                  // USB-specific functions
 #include "USB_API/USB_HID_API/UsbHid.h"
-
-/*
- * NOTE: Modify hal.h to select a specific evaluation board and customize for
- * your own board.
- */
 #include "hal.h"
-
-
 #include <stdbool.h>
 #include <msp430.h>
 #include <stdint.h>
@@ -67,6 +37,8 @@
 
 
 uint8_t a[8] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+
+
 //bit maskers
 const int pin0 = 0b00000001;
 const int pin1 = 0b00000010;
@@ -99,21 +71,6 @@ int pinVal(int i){
     }
     return 0x00;
  }
-
-
-
-
-
-/*********** Application specific globals **********************/
-volatile uint8_t button1Pressed = FALSE;
-volatile uint8_t button2Pressed = FALSE;
-volatile uint8_t keySendComplete = TRUE;
-uint8_t button1Buf[128] = "msp430";
-uint8_t button1StringLength;
-
-
-
-
 
 
 void main (void){
@@ -261,48 +218,5 @@ void main (void){
      }
 
     }
-
-
-} //main()
-
-
-/*  
- * ======== UNMI_ISR ========
- */
-#if defined(__TI_COMPILER_VERSION__) || (__IAR_SYSTEMS_ICC__)
-#pragma vector = UNMI_VECTOR
-__interrupt void UNMI_ISR (void)
-#elif defined(__GNUC__) && (__MSP430__)
-void __attribute__ ((interrupt(UNMI_VECTOR))) UNMI_ISR (void)
-#else
-#error Compiler not found!
-#endif
-{
-    switch (__even_in_range(SYSUNIV, SYSUNIV_BUSIFG))
-    {
-        case SYSUNIV_NONE:
-            __no_operation();
-            break;
-        case SYSUNIV_NMIIFG:
-            __no_operation();
-            break;
-        case SYSUNIV_OFIFG:
-             UCS_clearFaultFlag(UCS_XT2OFFG);
-            UCS_clearFaultFlag(UCS_DCOFFG);
-            SFR_clearInterrupt(SFR_OSCILLATOR_FAULT_INTERRUPT);
-            break;
-        case SYSUNIV_ACCVIFG:
-            __no_operation();
-            break;
-        case SYSUNIV_BUSIFG:
-            // If the CPU accesses USB memory while the USB module is
-            // suspended, a "bus error" can occur.  This generates an NMI.  If
-            // USB is automatically disconnecting in your software, set a
-            // breakpoint here and see if execution hits it.  See the
-            // Programmer's Guide for more information.
-            SYSBERRIV = 0; //clear bus error flag
-            USB_disable(); //Disable
-    }
 }
 
-//Released_Version_5_20_06_02

@@ -46,8 +46,8 @@
 					GPIO_PIN4|GPIO_PIN5|GPIO_PIN6|GPIO_PIN7
 
 
-extern volatile uint8_t button1Pressed;
-extern volatile uint8_t button2Pressed;
+volatile uint8_t button1Pressed;
+volatile uint8_t button2Pressed;
 
 /*
  * This function drives all the I/O's as output-low, to avoid floating inputs
@@ -155,33 +155,33 @@ void USBHAL_initButtons(void)
 /*
  * ======== Port1_ISR ========
  */
-#if defined(__TI_COMPILER_VERSION__) || (__IAR_SYSTEMS_ICC__)
-#pragma vector=PORT1_VECTOR
-__interrupt void Button1_ISR (void)
-#elif defined(__GNUC__) && (__MSP430__)
-void __attribute__ ((interrupt(PORT1_VECTOR))) Button1_ISR (void)
-#else
-#error Compiler not found!
-#endif
-{
-    uint16_t i;
-
-    if (GPIO_getInterruptStatus (BUTTON1_PORT, BUTTON1_PIN)){
-        for (i = 0x23FF; i > 0; i--){ //Cheap debounce.
-        }
-        if (GPIO_getInputPinValue(BUTTON1_PORT, BUTTON1_PIN)){
-        	button1Pressed = TRUE;
-        }
-        if (!GPIO_getInputPinValue(BUTTON2_PORT, BUTTON2_PIN)){
-        	button2Pressed = TRUE;
-        }
-        else {
-        	button2Pressed = FALSE;
-        }
-    }
-
-    GPIO_clearInterrupt(BUTTON1_PORT, BUTTON1_PIN);
-    __bic_SR_register_on_exit(LPM3_bits);   //Wake main from LPMx
-}
+//#if defined(__TI_COMPILER_VERSION__) || (__IAR_SYSTEMS_ICC__)
+//#pragma vector=PORT1_VECTOR
+//__interrupt void Button1_ISR (void)
+//#elif defined(__GNUC__) && (__MSP430__)
+//void __attribute__ ((interrupt(PORT1_VECTOR))) Button1_ISR (void)
+//#else
+//#error Compiler not found!
+//#endif
+//{
+//    uint16_t i;
+//
+//    if (GPIO_getInterruptStatus (BUTTON1_PORT, BUTTON1_PIN)){
+//        for (i = 0x23FF; i > 0; i--){ //Cheap debounce.
+//        }
+//        if (GPIO_getInputPinValue(BUTTON1_PORT, BUTTON1_PIN)){
+//        	button1Pressed = TRUE;
+//        }
+//        if (!GPIO_getInputPinValue(BUTTON2_PORT, BUTTON2_PIN)){
+//        	button2Pressed = TRUE;
+//        }
+//        else {
+//        	button2Pressed = FALSE;
+//        }
+//    }
+//
+//    GPIO_clearInterrupt(BUTTON1_PORT, BUTTON1_PIN);
+//    __bic_SR_register_on_exit(LPM3_bits);   //Wake main from LPMx
+//}
 
 //Released_Version_5_20_06_02
